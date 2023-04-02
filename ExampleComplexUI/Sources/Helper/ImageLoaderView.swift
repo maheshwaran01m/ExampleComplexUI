@@ -63,7 +63,7 @@ private class ImageCacheViewModel: ObservableObject {
   let urlString: String
   let contentMode: ContentMode
   
-  init(_ url: String = "https://picsum.photos/600/600",
+  init(_ url: String = DatabaseHelper.imageURL,
        contentMode type: ContentMode = .fill) {
     urlString = url
     contentMode = type
