@@ -75,6 +75,9 @@ struct SpotityPlaylistView: View {
         .padding(.vertical, 20)
         .frame(maxWidth: .infinity)
         .background(Color.spotifyBlack)
+//        .offset(y: showHeader ? 0 : -40)
+//        .transition(.move(edge: .bottom).combined(with: .slide))
+        .opacity(showHeader ? 1 : 0)
     }
   }
   
