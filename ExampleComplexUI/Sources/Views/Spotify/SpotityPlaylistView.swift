@@ -73,6 +73,8 @@ struct SpotityPlaylistView: View {
         .font(.headline)
         .foregroundStyle(.spotifyWhite)
         .padding(.vertical, 20)
+        .frame(maxWidth: .infinity)
+        .background(Color.spotifyBlack)
     }
   }
   
