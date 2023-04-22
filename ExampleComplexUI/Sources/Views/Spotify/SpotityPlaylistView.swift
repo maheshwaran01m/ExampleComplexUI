@@ -72,6 +72,7 @@ struct SpotityPlaylistView: View {
       Text(product.title)
         .font(.headline)
         .foregroundStyle(.spotifyWhite)
+        .padding(.vertical, 20)
     }
   }
   
