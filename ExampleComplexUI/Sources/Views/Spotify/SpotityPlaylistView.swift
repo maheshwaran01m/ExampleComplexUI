@@ -71,6 +71,7 @@ struct SpotityPlaylistView: View {
     ZStack {
       Text(product.title)
         .font(.headline)
+        .foregroundStyle(.spotifyWhite)
     }
   }
   
