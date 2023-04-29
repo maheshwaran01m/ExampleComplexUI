@@ -69,6 +69,8 @@ struct SpotityPlaylistView: View {
   
   private var headerView: some View {
     ZStack {
+      Text(product.title)
+        .font(.headline)
     }
   }
   
