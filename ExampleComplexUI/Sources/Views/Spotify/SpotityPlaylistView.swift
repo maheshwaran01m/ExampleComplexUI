@@ -67,6 +67,7 @@ struct SpotityPlaylistView: View {
     .padding(.leading, 16)
   }
   
+  private var headerView: some View {
     }
   }
   
