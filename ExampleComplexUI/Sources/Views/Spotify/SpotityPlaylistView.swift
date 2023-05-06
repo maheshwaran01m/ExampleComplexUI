@@ -70,6 +70,18 @@ struct SpotityPlaylistView: View {
     }
   }
   
+  private func backgroundView() -> some View {
+    GeometryReader { proxy in
+      Color.clear
+        .onAppear {
+          showHeader = proxy.frame(in: .global).maxY < 150
+        }
+        .onChange(of: proxy.frame(in: .global).maxY) {
+          showHeader = $0 < 150
+        }
+    }
+  }
+}
 
 // MARK: - Get Data
 
