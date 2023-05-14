@@ -68,6 +68,7 @@ struct SpotityPlaylistView: View {
   }
     }
   }
+  
 
 // MARK: - Get Data
 
