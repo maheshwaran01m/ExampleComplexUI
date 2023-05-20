@@ -55,6 +55,17 @@ struct SpotityPlaylistView: View {
       detailView
     }
   }
+  
+  private var detailView: some View {
+    ForEach(products) { product in
+      SpotifySongRowCell(
+        imageName: product.thumbnail,
+        imageSize: 50,
+        title: product.title,
+        subtitle: product.description)
+    }
+    .padding(.leading, 16)
+  }
     }
   }
 
