@@ -59,6 +59,14 @@ struct SpotityPlaylistView: View {
   }
 
 // MARK: - Get Data
+
+extension SpotityPlaylistView {
+  
+  private func getData() async {
+    do {
+      products = try await DatabaseHelper().getProducts()
+    } catch {}
+  }
 }
 
 // MARK: - Preview
