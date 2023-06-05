@@ -51,6 +51,10 @@ struct SpotityPlaylistView: View {
         userName: user.firstName,
         subheadline: product.category)
       .padding(.horizontal, 16)
+      
+      detailView
+    }
+  }
     }
   }
 
