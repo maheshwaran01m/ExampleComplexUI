@@ -34,6 +34,7 @@ struct SpotityPlaylistView: View {
       
       headerView
     }
+    .task { await getData() }
   }
   
   private var mainView: some View {
