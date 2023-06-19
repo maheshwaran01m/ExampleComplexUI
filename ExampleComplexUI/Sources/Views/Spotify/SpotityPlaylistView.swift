@@ -15,6 +15,8 @@ struct SpotityPlaylistView: View {
   let user: User
   
   @State private var products = [Product]()
+  @State private var showHeader = false
+  
   init(product: Product = .preview,
        user: User = .preview) {
     self.product = product
