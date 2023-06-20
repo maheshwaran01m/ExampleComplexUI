@@ -14,6 +14,7 @@ struct SpotityPlaylistView: View {
   let product: Product
   let user: User
   
+  @State private var products = [Product]()
   init(product: Product = .preview,
        user: User = .preview) {
     self.product = product
