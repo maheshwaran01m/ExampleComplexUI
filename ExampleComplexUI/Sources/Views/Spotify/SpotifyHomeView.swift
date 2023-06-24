@@ -51,10 +51,9 @@ struct SpotifyHomeView: View {
   private var recentView: some View {
     NonLazyVGrid(columns: 2, items: products) { product in
       if let product {
-        SpotifyRecentCell(product.title, imageURL: product.firstImage)
-          .button(.press) {
-            
-          }
+        NavigationLink(value: product) {
+          SpotifyRecentCell(product.title, imageURL: product.firstImage)
+        }
       }
     }
     .padding(.horizontal, 16)
