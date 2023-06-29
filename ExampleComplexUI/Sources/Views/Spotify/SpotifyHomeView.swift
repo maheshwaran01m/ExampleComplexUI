@@ -61,6 +61,13 @@ struct SpotifyHomeView: View {
   }
   
   @ViewBuilder
+  private func productDetailView(_ product: Product) -> some View {
+    if let currentUser {
+      SpotityPlaylistView(product: product, user: currentUser)
+    }
+  }
+  
+  @ViewBuilder
   private var newReleaseView: some View {
     if let product = products.first {
       SpotifyNewReleaseCell(
