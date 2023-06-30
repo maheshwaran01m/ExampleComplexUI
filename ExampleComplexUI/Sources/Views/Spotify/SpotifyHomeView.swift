@@ -157,7 +157,9 @@ struct SpotifyHomeView: View {
 struct SpotifyHomeView_Previews: PreviewProvider {
   
   static var previews: some View {
-    SpotifyHomeView()
+    NavigationStack {
+      SpotifyHomeView()
+    }
   }
 }
 
