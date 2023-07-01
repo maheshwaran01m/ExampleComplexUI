@@ -37,6 +37,7 @@ struct SpotityPlaylistView: View {
         product.title,
         subtitle: product.brand,
         imageName: product.thumbnail)
+      .background(content: backgroundView)
       
       SpotifyPlaylistDecriptionCell(
         descriptionText: product.description,
