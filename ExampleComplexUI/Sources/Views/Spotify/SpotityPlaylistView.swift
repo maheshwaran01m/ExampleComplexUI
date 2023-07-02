@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SpotityPlaylistView: View {
   
+  @Environment(\.dismiss) private var dismiss
+  
   let product: Product
   let user: User
   
