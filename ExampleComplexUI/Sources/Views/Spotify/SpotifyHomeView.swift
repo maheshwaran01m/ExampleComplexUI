@@ -109,7 +109,7 @@ struct SpotifyHomeView: View {
             .background(Color.spotifyWhite)
             .clipShape(Circle())
             .onTapGesture {
-              
+              dismiss()
             }
         }
       }
