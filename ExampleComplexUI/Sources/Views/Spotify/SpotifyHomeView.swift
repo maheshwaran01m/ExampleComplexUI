@@ -45,6 +45,7 @@ struct SpotifyHomeView: View {
     .scrollIndicators(.hidden)
     .clipped()
     .toolbar(.hidden, for: .navigationBar)
+    .navigationDestination(for: Product.self, destination: productDetailView)
   }
   
   private var recentView: some View {
