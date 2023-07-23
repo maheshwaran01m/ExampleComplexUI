@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SpotifyHomeView: View {
   
+  @Environment(\.dismiss) private var dismiss
+  
   @State private var currentUser: User?
   @State private var selectedCategory: SpotifyCategory?
   @State private var products = [Product]()
