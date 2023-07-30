@@ -8,23 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-  
-  @State private var users = [User]()
-  
+    
   var body: some View {
-    List(users, id: \.id) { user in
-      Text(user.firstName)
-    }
-    .task {
-      await getData()
-    }
-  }
-  
-  private func getData() async {
-    do {
-      users = try await DatabaseHelper().getUsers()
-    } catch {
-      
+    NavigationStack {
+      SpotifyHomeView()
     }
   }
 }
@@ -34,6 +21,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
   
   static var previews: some View {
-    ContentView()
+    NavigationStack {
+      ContentView()
+    }
   }
 }
