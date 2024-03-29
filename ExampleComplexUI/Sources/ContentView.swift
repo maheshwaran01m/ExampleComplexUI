@@ -9,14 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
   
+  @State private var users = [User]()
+  
   var body: some View {
-    VStack {
-      Image(systemName: "globe")
-        .imageScale(.large)
-        .foregroundStyle(.tint)
-      Text("Hello, world!")
+    List(users, id: \.id) { user in
+      Text(user.firstName)
     }
-    .padding()
+    .task {
+      await getData()
+    }
+  }
+  
+  private func getData() async {
+    do {
+      users = try await DatabaseHelper().getUsers()
+    } catch {
+      
+    }
   }
 }
 
