@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D4846672BB8FE57005273B3 /* SpotifyHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4846662BB8FE57005273B3 /* SpotifyHomeView.swift */; };
+		3D48466A2BB90039005273B3 /* SpotifyCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4846692BB90039005273B3 /* SpotifyCategoryCell.swift */; };
+		3D48466D2BB9026B005273B3 /* SpotifyCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D48466C2BB9026B005273B3 /* SpotifyCategory.swift */; };
+		3D48466F2BB92E81005273B3 /* SpotifyRecentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D48466E2BB92E81005273B3 /* SpotifyRecentCell.swift */; };
 		3DF3349A2BB5428C0016C2E7 /* ExampleComplexUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF334992BB5428C0016C2E7 /* ExampleComplexUIApp.swift */; };
 		3DF3349C2BB5428C0016C2E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF3349B2BB5428C0016C2E7 /* ContentView.swift */; };
 		3DF3349E2BB5428D0016C2E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3349D2BB5428D0016C2E7 /* Assets.xcassets */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D4846662BB8FE57005273B3 /* SpotifyHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyHomeView.swift; sourceTree = "<group>"; };
+		3D4846692BB90039005273B3 /* SpotifyCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyCategoryCell.swift; sourceTree = "<group>"; };
+		3D48466C2BB9026B005273B3 /* SpotifyCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyCategory.swift; sourceTree = "<group>"; };
+		3D48466E2BB92E81005273B3 /* SpotifyRecentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyRecentCell.swift; sourceTree = "<group>"; };
 		3DF334962BB5428C0016C2E7 /* ExampleComplexUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleComplexUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF334992BB5428C0016C2E7 /* ExampleComplexUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleComplexUIApp.swift; sourceTree = "<group>"; };
 		3DF3349B2BB5428C0016C2E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +44,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D4846642BB8FE34005273B3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3D4846652BB8FE3D005273B3 /* Spotify */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3D4846652BB8FE3D005273B3 /* Spotify */ = {
+			isa = PBXGroup;
+			children = (
+				3D48466B2BB90256005273B3 /* Model */,
+				3D4846682BB90021005273B3 /* Components */,
+				3D4846662BB8FE57005273B3 /* SpotifyHomeView.swift */,
+			);
+			path = Spotify;
+			sourceTree = "<group>";
+		};
+		3D4846682BB90021005273B3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3D4846692BB90039005273B3 /* SpotifyCategoryCell.swift */,
+				3D48466E2BB92E81005273B3 /* SpotifyRecentCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3D48466B2BB90256005273B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D48466C2BB9026B005273B3 /* SpotifyCategory.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3DF3348D2BB5428C0016C2E7 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				3DF334A92BB545400016C2E7 /* Helper */,
+				3D4846642BB8FE34005273B3 /* Views */,
 				3DF3349B2BB5428C0016C2E7 /* ContentView.swift */,
 			);
 			path = Sources;
@@ -167,9 +211,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D4846672BB8FE57005273B3 /* SpotifyHomeView.swift in Sources */,
+				3D48466F2BB92E81005273B3 /* SpotifyRecentCell.swift in Sources */,
 				3DF334AD2BB56B9B0016C2E7 /* DatabaseHelper.swift in Sources */,
 				3DF334AB2BB5454E0016C2E7 /* ImageLoaderView.swift in Sources */,
 				3DF3349C2BB5428C0016C2E7 /* ContentView.swift in Sources */,
+				3D48466D2BB9026B005273B3 /* SpotifyCategory.swift in Sources */,
+				3D48466A2BB90039005273B3 /* SpotifyCategoryCell.swift in Sources */,
 				3DF3349A2BB5428C0016C2E7 /* ExampleComplexUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
