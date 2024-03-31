@@ -12,6 +12,7 @@ struct SpotifyHomeView: View {
   @State private var currentUser: User?
   @State private var selectedCategory: SpotifyCategory?
   @State private var products = [Product]()
+  @State private var productCategory = [ProductCategory]()
   
   var body: some View {
     ZStack {
@@ -29,8 +30,13 @@ struct SpotifyHomeView: View {
   private var mainView: some View {
     ScrollView {
       LazyVStack(pinnedViews: [.sectionHeaders]) {
+        
         Section {
-         gridView
+          VStack(spacing: 16) {
+            recentView
+            newReleaseView
+            productListView
+          }
         } header: { headerView }
       }
     }
@@ -39,15 +45,55 @@ struct SpotifyHomeView: View {
     .toolbar(.hidden, for: .navigationBar)
   }
   
-  private var gridView: some View {
-    VStack {
-      NonLazyVGrid(columns: 2, items: products) { product in
-        if let product {
-          SpotifyRecentCell(product.title, imageURL: product.firstImage)
-        }
+  private var recentView: some View {
+    NonLazyVGrid(columns: 2, items: products) { product in
+      if let product {
+        SpotifyRecentCell(product.title, imageURL: product.firstImage)
+          .button(.press) {
+            
+          }
       }
     }
     .padding(.horizontal, 16)
+  }
+  
+  @ViewBuilder
+  private var newReleaseView: some View {
+    if let product = products.first {
+      SpotifyNewReleaseCell(
+        product.firstImage,
+        headline: product.brand,
+        subheadline: product.category,
+        title: product.title,
+        subTitle: product.description
+      )
+      .padding(.horizontal, 16)
+    }
+  }
+  
+  private var productListView: some View {
+    VStack(spacing: 8) {
+      
+      ForEach(productCategory, id: \.id) { cateogry in
+        
+        Text(cateogry.title)
+          .font(.title)
+          .fontWeight(.semibold)
+          .foregroundStyle(.spotifyWhite)
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .padding(.horizontal, 16)
+        
+        ScrollView(.horizontal) {
+          HStack(alignment: .top, spacing: 16) {
+            ForEach(cateogry.products, id: \.id) { product in
+              SpotifyImageTitleRowView(product.firstImage,
+                                       title: product.title)
+            }
+          }
+          .padding(.horizontal, 16)
+        }
+      }
+    }
   }
   
   // MARK: - Header
@@ -91,6 +137,13 @@ struct SpotifyHomeView: View {
     do {
       currentUser = try await DatabaseHelper().getUsers().first
       products = try await Array(DatabaseHelper().getProducts().prefix(8))
+      
+      productCategory = Set(products.map { $0.brand }).map { brand in
+        
+        let products = self.products.filter { $0.brand == brand }
+        
+        return ProductCategory(title: brand, products: products)
+      }
     } catch {}
   }
 }

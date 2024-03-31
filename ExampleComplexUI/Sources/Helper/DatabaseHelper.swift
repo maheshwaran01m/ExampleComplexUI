@@ -9,6 +9,8 @@ import Foundation
 
 struct DatabaseHelper {
   
+  static let imageURL =  "https://picsum.photos/600/600"
+  
   func getProducts() async throws -> [Product] {
     guard let url = URL(string: "https://dummyjson.com/products") else {
       throw URLError(.badURL)
@@ -51,6 +53,12 @@ struct Product: Codable, Identifiable {
   var firstImage: String {
     images.first ?? ""
   }
+}
+
+struct ProductCategory: Identifiable {
+  let id = UUID().uuidString
+  let title: String
+  let products: [Product]
 }
 
 // MARK: User
