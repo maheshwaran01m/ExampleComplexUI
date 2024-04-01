@@ -53,6 +53,16 @@ struct Product: Codable, Identifiable {
   var firstImage: String {
     images.first ?? ""
   }
+  
+  static var preview: Product {
+    .init(id: 0, title: "Example Product",
+          description: "Description", price: 999,
+          discountPercentage: 15,
+          rating: 4, stock: 50,
+          brand: "Apple", category: "Electronic Devices",
+          thumbnail: DatabaseHelper.imageURL,
+          images: [DatabaseHelper.imageURL, DatabaseHelper.imageURL, DatabaseHelper.imageURL])
+  }
 }
 
 struct ProductCategory: Identifiable {
@@ -75,4 +85,14 @@ struct User: Codable {
   let image: String
   let height: Int
   let weight: Double
+  
+  static var preview: User {
+    .init(id: 0,
+          firstName: "First",
+          lastName: "Last Name", age: 0, email: "example",
+          phone: "", username: "User", password: "",
+          image: DatabaseHelper.imageURL,
+          height: 0, weight: 0
+    )
+  }
 }
