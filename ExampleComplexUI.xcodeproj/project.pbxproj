@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D33F4CA2BC0EE8700052AF9 /* BumbleHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D33F4C92BC0EE8700052AF9 /* BumbleHomeView.swift */; };
 		3D4846672BB8FE57005273B3 /* SpotifyHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4846662BB8FE57005273B3 /* SpotifyHomeView.swift */; };
 		3D48466A2BB90039005273B3 /* SpotifyCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4846692BB90039005273B3 /* SpotifyCategoryCell.swift */; };
 		3D48466D2BB9026B005273B3 /* SpotifyCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D48466C2BB9026B005273B3 /* SpotifyCategory.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D33F4C92BC0EE8700052AF9 /* BumbleHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BumbleHomeView.swift; sourceTree = "<group>"; };
 		3D4846662BB8FE57005273B3 /* SpotifyHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyHomeView.swift; sourceTree = "<group>"; };
 		3D4846692BB90039005273B3 /* SpotifyCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyCategoryCell.swift; sourceTree = "<group>"; };
 		3D48466C2BB9026B005273B3 /* SpotifyCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyCategory.swift; sourceTree = "<group>"; };
@@ -60,9 +62,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D33F4C72BC0ECF100052AF9 /* Bumble */ = {
+			isa = PBXGroup;
+			children = (
+				3D33F4C82BC0EE6E00052AF9 /* Components */,
+				3D33F4C92BC0EE8700052AF9 /* BumbleHomeView.swift */,
+			);
+			path = Bumble;
+			sourceTree = "<group>";
+		};
+		3D33F4C82BC0EE6E00052AF9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		3D4846642BB8FE34005273B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3D33F4C72BC0ECF100052AF9 /* Bumble */,
 				3D4846652BB8FE3D005273B3 /* Spotify */,
 			);
 			path = Views;
@@ -235,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D33F4CA2BC0EE8700052AF9 /* BumbleHomeView.swift in Sources */,
 				3D4846812BBA4316005273B3 /* SpotifySongRowCell.swift in Sources */,
 				3D4846712BB934E6005273B3 /* SpotifyNewReleaseCell.swift in Sources */,
 				3D4846732BB93D10005273B3 /* SpotifyImageTitleRowView.swift in Sources */,
