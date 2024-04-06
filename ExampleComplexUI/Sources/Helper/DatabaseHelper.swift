@@ -86,6 +86,31 @@ struct User: Codable {
   let height: Int
   let weight: Double
   
+  var work: String { "Software Engineer" }
+  var education: String { "Master of Science" }
+  var aboutMe: String { "Example for about Me" }
+  
+  var basic: [BumbleInterestView.Item] {
+    [.init(iconName: "ruler", text: height.description),
+     .init(iconName: "graduationcap", text: education),
+      .init(iconName: "wineglass", text: "Socially"),
+     .init(iconName: "moon.stars.fill", text: "Text")
+    ]
+  }
+  
+  var interests: [BumbleInterestView.Item] {
+    [.init(emoji: "🏃‍♂️", text: "Running"),
+     .init(emoji: "👨‍💻", text: "Coding"),
+     .init(emoji: "🎧", text: "Music")
+    ]
+  }
+  
+  var images: [String] {
+    ["https://picsum.photos/600/600",
+     "https://picsum.photos/500/500",
+     "https://picsum.photos/700/700"]
+  }
+  
   static var preview: User {
     .init(id: 0,
           firstName: "First",
