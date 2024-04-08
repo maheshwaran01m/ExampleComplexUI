@@ -77,7 +77,7 @@ struct Users: Codable {
   let users: [User]
 }
 
-struct User: Codable {
+struct User: Codable, Hashable {
   let id: Int
   let firstName, lastName: String
   let age: Int

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BumbleHomeView: View {
   
+  @Environment(\.dismiss) private var dismiss
+  
   @AppStorage("bumble_home_filter") private var filter: String = "Everyone"
   
   @State private var records = [User]()
@@ -44,18 +46,20 @@ struct BumbleHomeView: View {
       
       HStack(spacing: .zero) {
         
-        Image(systemName: "line.horizontal.3")
-          .padding(8)
-          .background(Color.bumbleBlack.opacity(0.0001))
-          .onTapGesture {
-            
-          }
+        NavigationLink {
+          BumbleChatView()
+        } label: {
+          Image(systemName: "line.horizontal.3")
+            .padding(8)
+            .background(Color.bumbleBlack.opacity(0.0001))
+          
+        }
         
         Image(systemName: "arrow.uturn.left")
           .padding(8)
           .background(Color.bumbleBlack.opacity(0.0001))
           .onTapGesture {
-            
+            dismiss()
           }
       }
       .frame(maxWidth: .infinity, alignment: .leading)
@@ -197,6 +201,8 @@ extension BumbleHomeView {
 struct BumbleHomeView_Previews: PreviewProvider {
   
   static var previews: some View {
-    BumbleHomeView()
+    NavigationStack {
+      BumbleHomeView()
+    }
   }
 }
