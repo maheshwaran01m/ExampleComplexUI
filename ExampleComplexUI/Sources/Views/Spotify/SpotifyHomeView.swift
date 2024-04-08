@@ -22,6 +22,7 @@ struct SpotifyHomeView: View {
       
       mainView
     }
+    .overlay(alignment: .topLeading, content: closeButtonView)
     .task {
       await getData()
     }
@@ -42,6 +43,7 @@ struct SpotifyHomeView: View {
         } header: { headerView }
       }
     }
+    .padding(.top, 10)
     .scrollIndicators(.hidden)
     .clipped()
     .toolbar(.hidden, for: .navigationBar)
@@ -138,6 +140,16 @@ struct SpotifyHomeView: View {
     .padding(.vertical, 24)
     .padding(.leading, 8)
     .background(Color.spotifyBlack)
+  }
+  
+  private func closeButtonView() -> some View {
+    Image(systemName: "chevron.left")
+      .font(.title3)
+      .padding(8)
+      .onTapGesture {
+        dismiss()
+      }
+      .foregroundStyle(.spotifyWhite)
   }
   
   // MARK: - Get Data
