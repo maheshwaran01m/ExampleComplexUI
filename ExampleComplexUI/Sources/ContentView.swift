@@ -80,7 +80,7 @@ extension ContentView {
 extension ContentView {
   
   enum ViewCoordinator: String, CaseIterable {
-    case spotify, bumble
+    case spotify, bumble, netflix
     
     var title: String {
       self.rawValue.capitalized
@@ -91,6 +91,7 @@ extension ContentView {
       switch self {
       case .spotify: SpotifyHomeView()
       case .bumble: BumbleHomeView()
+      case .netflix: NetflixHomeView()
       }
     }
   }
