@@ -23,4 +23,19 @@ extension View {
       }
     }
   }
+  
+  func getFrame(_ value: @escaping (CGRect) -> Void) -> some View {
+    self.background {
+      GeometryReader { proxy in
+        Color.clear
+          .frame(maxWidth: .infinity, maxHeight: .infinity)
+          .onAppear {
+            value(proxy.frame(in: .global))
+          }
+          .onChange(of: proxy.frame(in: .global)) {
+            value($0)
+          }
+      }
+    }
+  }
 }

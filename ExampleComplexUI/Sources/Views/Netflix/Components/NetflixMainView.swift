@@ -86,8 +86,8 @@ struct NetflixMainView: View {
           }
           .frame(maxWidth: .infinity)
           .padding(.vertical, 8)
-          .foregroundStyle(.netflixDarkGray)
-          .background(.netflixWhite)
+          .foregroundStyle(.netflixWhite)
+          .background(.netflixDarkGray)
           .clipShape(.rect(cornerRadius: 8))
           .onTapGesture { onMyListClicked?() }
         }
