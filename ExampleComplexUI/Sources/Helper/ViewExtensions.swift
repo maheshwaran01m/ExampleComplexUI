@@ -38,4 +38,13 @@ extension View {
       }
     }
   }
+  
+  @ViewBuilder
+  func isEnabled(_ show: Bool, _ content: (Self) -> some View) -> some View {
+    if show {
+      content(self)
+    } else {
+      self
+    }
+  }
 }
