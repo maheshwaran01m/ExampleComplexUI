@@ -9,6 +9,8 @@ import SwiftUI
 
 struct NetflixHomeView: View {
   
+  @SwiftUI.Environment(\.dismiss) private var dismiss
+  
   @State private var selectedFilter: FilterItem?
   @State private var frame = CGRect.zero
   
@@ -18,6 +20,8 @@ struct NetflixHomeView: View {
   
   @State private var scrollOffset = CGFloat.zero
   
+  @State private var isDetailPresented = false
+  
   var body: some View {
     ZStack(alignment: .top) {
       Color.netflixBlack.ignoresSafeArea()
@@ -25,6 +29,7 @@ struct NetflixHomeView: View {
       scrollView
       mainView
     }
+    .sheet(isPresented: $isDetailPresented, content: contentDetailView)
     .toolbar(.hidden, for: .navigationBar)
     .task { await getData() }
   }
@@ -57,6 +62,12 @@ struct NetflixHomeView: View {
             imageName: product.firstImage,
             title: product.title,
             categories: [product.category.capitalized, product.brand])
+          .onBackgroundClicked {
+            isDetailPresented.toggle()
+          }
+          .onPlayClicked {
+            isDetailPresented.toggle()
+          }
           .padding(24)
         }
         
@@ -65,6 +76,10 @@ struct NetflixHomeView: View {
     } onScrollChanged: { offset in
       scrollOffset = min(0, offset.y)
     }
+  }
+  
+  private func contentDetailView() -> some View {
+    NetflixDetailView()
   }
   
   private var mainView: some View {
@@ -98,6 +113,7 @@ struct NetflixHomeView: View {
       Text("For You")
         .frame(maxWidth: .infinity, alignment: .leading)
         .font(.title)
+        .onTapGesture { dismiss() }
       
       HStack(spacing: 16) {
         Image(systemName: "tv.badge.wifi")
@@ -144,8 +160,11 @@ struct NetflixHomeView: View {
                 NetflixMovieView(
                   imageName: product.firstImage,
                   title: product.title,
-                  isRecentlyAdded: Product.recentlyAdd,
+                  isRecentlyAdded: rowIndex == 0 ? index.isMultiple(of: 2) : false,
                   toTenRanking: rowIndex == 1 ? index + 1 : nil)
+                .onTapGesture {
+                  isDetailPresented.toggle()
+                }
               }
             }
             .padding(.horizontal, 16)
