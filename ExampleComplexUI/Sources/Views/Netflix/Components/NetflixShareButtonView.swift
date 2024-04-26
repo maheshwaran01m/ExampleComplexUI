@@ -29,7 +29,7 @@ struct NetflixShareButtonView: View {
               
           .font(.title)
           
-          Text("My List")
+          Text("Share")
         }
         .foregroundStyle(.netflixWhite)
         .padding(8)
